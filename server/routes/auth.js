@@ -7,6 +7,6 @@ const router = express.Router()
 
 // posting to path, also importing login from authController
 router.post('/login', login)
-router.post('/verify', authMiddleware, verify)
+router.get('/verify', authMiddleware, verify)
 
 export default router;

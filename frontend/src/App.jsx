@@ -7,6 +7,7 @@ import RoleBaseRoutes from './utils/RoleBaseRoutes.jsx';
 import AdminSummary from './components/dashboard/AdminSummary.jsx';
 import DepartmentList from './components/departments/DepartmentList.jsx';
 import AddDepartment from './components/departments/AddDepartment.jsx';
+import EditDepartment from './components/departments/EditDepartment.jsx';
 function App() {
   return (
     <BrowserRouter>
@@ -25,6 +26,7 @@ function App() {
 
           <Route path="/admin-dashboard/departments" element={<DepartmentList />}></Route>
           <Route path="/admin-dashboard/add-department" element={<AddDepartment />}></Route>
+          <Route path="/admin-dashboard/department/:id" element={<EditDepartment />}></Route>
 
         </Route>
         <Route path = "/employee-dashboard" element =  {<EmployeeDashboard />}> </Route>

@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useNavigate, useParams } from 'react-router-dom'; // Missing import
-import { DepartmentButtons } from '../../utils/DepartmentHelper.jsx';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const EditDepartment = () => {
   const { id } = useParams();
   const [department, setDepartment] = useState({ dep_name: '', description: '' });
   const [depLoading, setDepLoading] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchDepartments = async () => {
@@ -22,9 +21,7 @@ const EditDepartment = () => {
           setDepartment(response.data.department);
         }
       } catch (error) {
-        if (error.response && !error.response.data.success) {
-          alert(error.response.data.error);
-        }
+        alert(error.response?.data?.error || 'Failed to fetch department data.');
       } finally {
         setDepLoading(false);
       }
@@ -50,16 +47,18 @@ const EditDepartment = () => {
         navigate("/admin-dashboard/departments");
       }
     } catch (error) {
-      alert('Failed to update department.');
+      alert(error.response?.data?.error || 'Failed to update department.');
     }
   };
 
   return (
     <>
       {depLoading ? (
-        <div>Loading ...</div>
+        <div className="flex justify-center items-center h-screen">
+          <div>Loading ...</div>
+        </div>
       ) : (
-        <div className="max-w-3xl mx-auto mt-10 bg-white p-8 rounded-md shadow-md w-96">
+        <div className="max-w-3xl mx-auto mt-10 bg-white p-8 rounded-md shadow-md">
           <h2 className="text-2xl font-bold mb-6">Edit Department</h2>
           <form onSubmit={handleSubmit}>
             <div>
@@ -67,6 +66,7 @@ const EditDepartment = () => {
                 Department Name
               </label>
               <input
+                id="dep_name"
                 type="text"
                 name="dep_name"
                 onChange={handleChange}
@@ -82,6 +82,7 @@ const EditDepartment = () => {
                 Description
               </label>
               <textarea
+                id="description"
                 name="description"
                 placeholder="Description"
                 onChange={handleChange}

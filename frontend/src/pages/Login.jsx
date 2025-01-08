@@ -38,9 +38,17 @@ const Login = () => {
 
   return (
     <div
-      className="flex flex-col items-center h-screen justify-center 
-    bg-gradient-to-b from-teal-600 from-50% to-gray-100 to-50% space-y-6"
+      className="flex flex-col items-center h-screen justify-center
+    bg-gradient-to-b from-purple-300 via-purple-500 to-purple-900 space-y-6 relative"
+      style={{
+        backgroundImage: "url('/public/img.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundBlendMode: "overlay",
+      }}
     >
+
+
       <h2 className="font-pacific text-3xl text-white">
         Employee Management System
       </h2>
@@ -74,7 +82,7 @@ const Login = () => {
           </div>
           <div className="mb-4 flex items-center justify-between">
             <label className="inline-flex items-center">
-              <input type="checkbox" className="form-checkbox" />
+              <input type="checkbox" className="form-checkbox"/>
               <span className="ml-2 text-gray-700">Remember me</span>
             </label>
             <a href="#" className="text-teal-600">

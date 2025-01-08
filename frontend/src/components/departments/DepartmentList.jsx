@@ -49,7 +49,7 @@ const DepartmentList = () => {
 
     fetchDepartments();
 
-  }, [])
+  }, []);
 
   const filterDepartments = (e) => {
     const records = departments.filter((dep) => dep.dep_name.toLowerCase().includes(e.target.value.toLowerCase()))

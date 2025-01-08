@@ -1,11 +1,9 @@
 import express from 'express'
 import { login, verify } from '../controllers/authController.js'
-import authMiddleware from '../middleware/authMiddleware.js';
+import authMiddleware from '../middleware/authMiddlware.js'
 
-// creating an instance of router
 const router = express.Router()
 
-// posting to path, also importing login from authController
 router.post('/login', login)
 router.get('/verify', authMiddleware, verify)
 

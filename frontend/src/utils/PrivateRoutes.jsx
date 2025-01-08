@@ -1,19 +1,15 @@
-import React from 'react';
-import { useAuth } from '../context/authContext.jsx';
-import { Navigate } from 'react-router-dom';
-import PropTypes from 'prop-types';
-const PrivateRoutes = ({ children }) => {
-  const { user, loading } = useAuth();
+import React from 'react'
+import { useAuth } from '../context/authContext'
+import {Navigate} from 'react-router-dom'
 
-  if (loading) {
-    return <div>Loading ....</div>;
+const PrivateRoutes = ({children}) => {
+  const {user, loading} = useAuth()
+
+  if(loading) {
+    return <div>Loading ....</div>
   }
 
-  return user ? children : <Navigate to="/login" />;
-};
-
-PrivateRoutes.propTypes = {
-  children: PropTypes.node.isRequired
+  return user ? children : <Navigate to="/login" />
 }
 
-export default PrivateRoutes;
+export default PrivateRoutes

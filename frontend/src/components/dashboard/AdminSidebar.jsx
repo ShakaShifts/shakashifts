@@ -11,16 +11,21 @@ import {
 
 const AdminSidebar = () => {
   return (
-    <div className="bg-gray-800 text-white h-screen fixed left-0 top-0 bottom-0 space-y-2 w-64">
-      <div className="bg-teal-600 h-12 flex items-center justify-center">
-        <h3 className="text-2xl text-center font-pacific">Employee MS</h3>
+    <div className="bg-gray-900 text-white h-screen fixed left-0 top-0 bottom-0 space-y-2 w-64">
+      <div className="bg-purple-700 h-12 flex items-center justify-center">
+        <h3 className="text-2xl text-center font-pacific"> <img
+          style={{paddingTop:20, width: "120px", height: "120px" }}
+          src="/shakashifts.gif"
+          alt="Shaka Shifts"
+        /></h3>
       </div>
       <div className="px-4">
         <NavLink
           to="/admin-dashboard"
           className={({ isActive }) =>
             `${
-              isActive ? "bg-teal-500 " : " "
+              isActive ? "bg-purple-800 " : " "
+              
             } flex items-center space-x-4 block py-2.5 px-4 rounded`
           }
           end
@@ -32,8 +37,8 @@ const AdminSidebar = () => {
           to="/admin-dashboard/employees"
           className={({ isActive }) =>
             `${
-              isActive ? "bg-teal-500 " : " "
-            } flex items-center space-x-4 block py-2.5 px-4 rounded`
+              isActive ? "bg-purple-800 " : " "
+            } hover:purple-700 flex items-center space-x-4 block py-2.5 px-4 rounded`
           }
         >
           <FaUsers />
@@ -43,7 +48,7 @@ const AdminSidebar = () => {
           to="/admin-dashboard/departments"
           className={({ isActive }) =>
             `${
-              isActive ? "bg-teal-500 " : " "
+              isActive ? "bg-purple-800 " : " "
             } flex items-center space-x-4 block py-2.5 px-4 rounded`
           }
         >
@@ -54,7 +59,7 @@ const AdminSidebar = () => {
           to="/admin-dashboard/leaves"
           className={({ isActive }) =>
             `${
-              isActive ? "bg-teal-500 " : " "
+              isActive ? "bg-purple-800 " : " "
             } flex items-center space-x-4 block py-2.5 px-4 rounded`
           }
         >
@@ -65,7 +70,7 @@ const AdminSidebar = () => {
           to="/admin-dashboard/salary/add"
           className={({ isActive }) =>
             `${
-              isActive ? "bg-teal-500 " : " "
+              isActive ? "bg-purple-800 " : " "
             } flex items-center space-x-4 block py-2.5 px-4 rounded`
           }
         >
@@ -74,7 +79,11 @@ const AdminSidebar = () => {
         </NavLink>
         <NavLink
           to="/admin-dashboard/setting"
-          className="flex items-center space-x-4 block py-2.5 px-4 rounded"
+          className={({ isActive }) =>
+            `${
+              isActive ? "bg-purple-800 " : " "
+            } flex items-center space-x-4 block py-2.5 px-4 rounded`
+          }
         >
           <FaCogs />
           <span>Settings</span>
